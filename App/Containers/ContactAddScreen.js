@@ -12,7 +12,7 @@ import HeaderBar from '../Components/HeaderBar'
 import {Avatar} from '../Components/Avatar'
 import {Item} from '../Components/Item'
 import {ModalSelectPhoto} from '../Components/ModalSelectPhoto'
-import { Fonts } from '../Themes/index'
+import { Fonts, Colors } from '../Themes/index'
 
 // Styles
 // import styles from './Styles/ContactAddScreenStyle'
@@ -173,7 +173,7 @@ class ContactAddScreen extends Component {
 
   render () {
     return (
-      <Container>
+      <Container style={{backgroundColor: Colors.white}}>
         <ModalSelectPhoto visible={this.state.isSelectPhoto} onClose={() => this.setState({isSelectPhoto: false})} onResult={this._onResult.bind(this)} />
         <HeaderBar {...this.props} confirm title={this.state.isEdit ? 'Edit Contact' : 'Add Contact'} saveDisable={this.state.saveDisable} onSave={this._onSubmit.bind(this)} />
         <Content style={{flex: 1}}>

@@ -1,5 +1,6 @@
-<<<<<<< HEAD
 #  ContactApp
+Contact App, Example react native project. Using Ignite2 and NativeBase.
+
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
 * Standard compliant React Native App Utilizing [Ignite](https://github.com/infinitered/ignite)
@@ -39,34 +40,3 @@ If you have to bypass lint for a special commit that you will come back and clea
 **Understanding Linting Errors**
 
 The linting rules are from JS Standard and React-Standard.  [Regular JS errors can be found with descriptions here](http://eslint.org/docs/rules/), while [React errors and descriptions can be found here](https://github.com/yannickcr/eslint-plugin-react).
-
-## :closed_lock_with_key: Secrets
-
-This project uses [react-native-config](https://github.com/luggit/react-native-config) to expose config variables to your javascript code in React Native. You can store API keys
-and other sensitive information in a `.env` file:
-
-```
-API_URL=https://myapi.com
-GOOGLE_MAPS_API_KEY=abcdefgh
-```
-
-and access them from React Native like so:
-
-```
-import Secrets from 'react-native-config'
-
-Secrets.API_URL  // 'https://myapi.com'
-Secrets.GOOGLE_MAPS_API_KEY  // 'abcdefgh'
-```
-
-The `.env` file is ignored by git keeping those secrets out of your repo.
-
-### Get started:
-1. Copy .env.example to .env
-2. Add your config variables
-3. Follow instructions at [https://github.com/luggit/react-native-config#setup](https://github.com/luggit/react-native-config#setup)
-4. Done!
-=======
-# ContactApp
-Contact App, Example react native project. Using Ignite2 and NativeBase.
->>>>>>> c9d8bb63a12f34890c4369f5ec5037965418f03a

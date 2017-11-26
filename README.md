@@ -1,7 +1,5 @@
 #  ContactApp
 Contact App, Example react native project. Using Ignite2 and NativeBase. Implement CRUD and upload file.
-Link to apk ![download](https://webapp.diawi.com/install/eZ324A)
-
 | Sceen1 | Screen2 | Screen3 | Screen4 |
 | ----- | ----- | ----- | ---- | 
 | ![screen1](https://i.imgur.com/2iknR38.png) | ![screen2](https://i.imgur.com/oomVaj9.png) | ![screen3](https://i.imgur.com/36PrcVj.png) | ![screen2](https://i.imgur.com/sqTecfG.png)

@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native'
-
+import { Colors } from '../../Themes'
 const { height, width } = Dimensions.get('window')
 
 export default StyleSheet.create({
@@ -19,7 +19,8 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,1)',
     justifyContent: 'center',
     alignItems: 'center',
-    // borderWidth: 1,
+    borderWidth: 2,
+    borderColor: Colors.backgroundGray,
     elevation: 10
   },
   containerContent: {

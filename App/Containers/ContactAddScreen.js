@@ -185,7 +185,7 @@ class ContactAddScreen extends Component {
             </Body>
           </Content>
           <Form>
-            <Item floatingLabel>
+            <Item floatingLabel stackedLabel={this.state.firstName.length > 0}>
               <Label style={styles.labelStyle}>First Name</Label>
               <Input style={styles.labelStyle}
                 onSubmitEditing={() => this._focusInput('lastName')}
@@ -195,7 +195,7 @@ class ContactAddScreen extends Component {
                 maxLength={20}
               />
             </Item>
-            <Item floatingLabel>
+            <Item floatingLabel stackedLabel={this.state.lastName.length > 0}>
               <Label style={styles.labelStyle}>Last Name</Label>
               <Input style={styles.labelStyle}
                 getRef={input => { this.lastName = input }}
@@ -206,7 +206,7 @@ class ContactAddScreen extends Component {
                 maxLength={20}
               />
             </Item>
-            <Item floatingLabel>
+            <Item floatingLabel stackedLabel={this.state.phone.length > 0}>
               <Label style={styles.labelStyle}>Phone Number</Label>
               <Input style={styles.labelStyle}
                 getRef={input => { this.phone = input }}
@@ -218,7 +218,7 @@ class ContactAddScreen extends Component {
                 maxLength={13}
               />
             </Item>
-            <Item floatingLabel>
+            <Item floatingLabel stackedLabel={this.state.email.length > 0}>
               <Label style={styles.labelStyle}>Email</Label>
               <Input style={styles.labelStyle}
                 getRef={input => { this.email = input }}
@@ -230,7 +230,7 @@ class ContactAddScreen extends Component {
                 maxLength={50}
               />
             </Item>
-            <Item floatingLabel>
+            <Item floatingLabel stackedLabel={this.state.occupation.length > 0}>
               <Label style={styles.labelStyle}>Occupation</Label>
               <Input style={styles.labelStyle}
                 getRef={input => { this.occupation = input }}

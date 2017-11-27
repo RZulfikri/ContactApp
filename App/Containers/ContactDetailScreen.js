@@ -89,7 +89,7 @@ class ContactDetailScreen extends Component {
     return (
       <Container>
         <HeaderBar {...this.props} title={userDetail.first_name + ' ' + userDetail.last_name} onEdit={this._onPressEdit.bind(this)} onDelete={this._onPressDelete.bind(this)} />
-        <Content >
+        <Content style={{backgroundColor: Colors.white}} >
           {userDetail.photo
           ? <Content>
             <Image source={{uri: userDetail.photo}} style={{width: Metrics.screenWidth, height: Metrics.screenWidth, justifyContent: 'flex-end'}} >

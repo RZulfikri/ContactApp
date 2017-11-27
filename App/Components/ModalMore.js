@@ -30,7 +30,7 @@ export const ModalMore = (props) => {
                   <Text>Edit</Text>
                 </ListItem>
                 <View style={{height: 1, backgroundColor: Colors.cloud}} />
-                <ListItem onPress={() => {
+                <ListItem lastRow onPress={() => {
                   typeof props.onPressDelete === 'function' && props.onPressDelete()
                 }}>
                   <Text>Delete</Text>

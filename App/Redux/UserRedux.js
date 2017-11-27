@@ -46,21 +46,21 @@ export const INITIAL_STATE = Immutable({
 /* ------------- Reducers ------------- */
 
 export const getUserListRequest = (state, {data}) =>
-state.merge({...state, userList: {...state.userList, fetching: true, data}})
+state.merge({userList: {...state.userList, fetching: true, data}})
 export const getUserListSuccess = (state, {payload}) =>
-state.merge({...state, userList: {...state.userList, fetching: false, error: null, payload}})
+state.merge({userList: {...state.userList, fetching: false, error: null, payload}})
 export const getUserListFailure = (state, {error}) =>
-state.merge({...state, userList: {...state.userList, fetching: false, error}})
+state.merge({userList: {...state.userList, fetching: false, error}})
 
 export const getUserDetailRequest = (state, {data}) =>
-state.merge({...state, userDetail: {...state.userDetail, fetching: true, data}})
+state.merge({userDetail: {...state.userDetail, fetching: true, data}})
 export const getUserDetailSuccess = (state, {payload}) =>
-state.merge({...state, userDetail: {...state.userDetail, fetching: false, error: null, payload}})
+state.merge({userDetail: {...state.userDetail, fetching: false, error: null, payload}})
 export const getUserDetailFailure = (state, {error}) =>
-state.merge({...state, userDetail: {...state.userDetail, fetching: false, error}})
+state.merge({userDetail: {...state.userDetail, fetching: false, error}})
 
 export const createUserRequest = (state, {data}) =>
-state.merge({...state, createUser: {...state.createUser, fetching: true, data}})
+state.merge({createUser: {...state.createUser, fetching: true, data}})
 export const createUserSuccess = (state, {payload}) => {
   let newUserlistPayload = state.userList.payload
   if (newUserlistPayload) {
@@ -72,16 +72,16 @@ export const createUserSuccess = (state, {payload}) => {
       ]
     }
   }
-  return state.merge({...state,
+  return state.merge({
     createUser: {...state.createUser, fetching: false, error: null, payload},
     userList: {...state.userList, fetching: false, error: null, payload: newUserlistPayload}
   })
 }
 export const createUserFailure = (state, {error}) =>
-state.merge({...state, createUser: {...state.createUser, fetching: false, error}})
+state.merge({createUser: {...state.createUser, fetching: false, error}})
 
 export const updateUserInfoRequest = (state, {data}) =>
-state.merge({...state, updateUser: {...state.updateUser, fetching: true, data}})
+state.merge({updateUser: {...state.updateUser, fetching: true, data}})
 export const updateUserInfoSuccess = (state, {payload}) => {
   let newUserlistPayload = state.userList.payload
 
@@ -93,10 +93,8 @@ export const updateUserInfoSuccess = (state, {payload}) => {
         ...oldData,
         ...payload.data
       }
-      console.tron.warn(newData)
       const newListData = [...newUserlistPayload.data]
       newListData.splice(index, 1, newData)
-      console.tron.warn(newListData)
       newUserlistPayload = {
         ...newUserlistPayload,
         data: newListData
@@ -104,17 +102,16 @@ export const updateUserInfoSuccess = (state, {payload}) => {
     }
   }
 
-  console.tron.warn(newUserlistPayload)
   return state.merge({...state,
     updateUser: {...state.updateUser, fetching: false, error: null, payload},
     userList: {...state.userList, fetching: false, error: null, payload: newUserlistPayload}
   })
 }
 export const updateUserInfoFailure = (state, {error}) =>
-state.merge({...state, updateUser: {...state.updateUser, fetching: false, error}})
+state.merge({updateUser: {...state.updateUser, fetching: false, error}})
 
 export const deleteUserRequest = (state, {data}) =>
-state.merge({...state, deleteUser: {...state.deleteUser, fetching: true, data}})
+state.merge({deleteUser: {...state.deleteUser, fetching: true, data}})
 export const deleteUserSuccess = (state, {payload}) => {
   let newUserlistPayload = state.userList.payload
   if (newUserlistPayload) {
@@ -129,10 +126,10 @@ export const deleteUserSuccess = (state, {payload}) => {
   })
 }
 export const deleteUserFailure = (state, {error}) =>
-state.merge({...state, deleteUser: {...state.deleteUser, fetching: false, error}})
+state.merge({deleteUser: {...state.deleteUser, fetching: false, error}})
 
 export const uploadUserPhotoRequest = (state, {data}) =>
-state.merge({...state, uploadPhoto: {...state.uploadPhoto, fetching: true, data}})
+state.merge({uploadPhoto: {...state.uploadPhoto, fetching: true, data}})
 export const uploadUserPhotoSuccess = (state, {payload}) => {
   let newUserlistPayload = state.userList.payload
 
@@ -153,14 +150,13 @@ export const uploadUserPhotoSuccess = (state, {payload}) => {
     }
   }
 
-  console.tron.warn(newUserlistPayload)
   return state.merge({...state,
     uploadPhoto: {...state.uploadPhoto, fetching: false, error: null, payload},
     userList: {...state.userList, fetching: false, error: null, payload: newUserlistPayload}
   })
 }
 export const uploadUserPhotoFailure = (state, {error}) =>
-state.merge({...state, uploadPhoto: {...state.uploadPhoto, fetching: false, error}})
+state.merge({uploadPhoto: {...state.uploadPhoto, fetching: false, error}})
 
 /* ------------- Hookup Reducers To Types ------------- */
 

@@ -44,11 +44,11 @@ export const ModalSelectPhoto = (props) => {
             <View style={styles.containerMain}>
               <View style={styles.containerContent}>
                 <TouchableOpacity onPress={() => openCamera(props.onResult)}>
-                  <Text style={{padding: 10}}>Select from camera</Text>
+                  <Text style={{padding: 10, color: Colors.primaryColor2}}>Select from camera</Text>
                 </TouchableOpacity>
                 <View style={{height: 1, backgroundColor: Colors.cloud}} />
                 <TouchableOpacity onPress={() => openGallery(props.onResult)}>
-                  <Text style={{padding: 10}}>Select from gallery</Text>
+                  <Text style={{padding: 10, color: Colors.primaryColor2}}>Select from gallery</Text>
                 </TouchableOpacity>
               </View>
             </View>

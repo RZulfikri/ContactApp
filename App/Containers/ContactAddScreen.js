@@ -12,13 +12,13 @@ import HeaderBar from '../Components/HeaderBar'
 import {Avatar} from '../Components/Avatar'
 import {Item} from '../Components/Item'
 import {ModalSelectPhoto} from '../Components/ModalSelectPhoto'
-import { Fonts, Colors } from '../Themes/index'
+import { Fonts, Colors, Metrics } from '../Themes/index'
 
 // Styles
 // import styles from './Styles/ContactAddScreenStyle'
 
 const styles = {
-  labelStyle: {fontSize: Fonts.size.regular}
+  labelStyle: {fontSize: Fonts.size.regular, flex: 1, flexGrow: 1, width: Metrics.screenWidth - 34}
 }
 
 class ContactAddScreen extends Component {
@@ -99,18 +99,20 @@ class ContactAddScreen extends Component {
       phone,
       occupation
     }
+
+    if (isSelectedPhoto) {
+      data = {
+        ...data,
+        photo
+      }
+    }
     this.setState({isFetching: true})
     if (isEdit) {
       data = {
         id: userId,
         ...data
       }
-      if (isSelectedPhoto) {
-        data = {
-          ...data,
-          photo
-        }
-      }
+
       this.props.doEditUser(data)
     } else {
       this.props.doAddUser(data)
@@ -160,10 +162,12 @@ class ContactAddScreen extends Component {
 
   _onResult (result) {
     // console.tron.warn(result)
+    let {firstName, lastName, email, phone} = this.state
+    const saveDisable = !((firstName.length > 0 || lastName.length > 0) && (email.length > 0 || phone.length > 0))
     this.setState({
       isSelectPhoto: false,
       isSelectedPhoto: true,
-      saveDisable: !this.state.isEdit,
+      saveDisable,
       photo: {
         path: result.path,
         type: result.mime
@@ -185,9 +189,10 @@ class ContactAddScreen extends Component {
             </Body>
           </Content>
           <Form>
-            <Item floatingLabel>
+            <Item stackedLabel={this.state.isEdit} floatingLabel={!this.state.isEdit}>
               <Label style={styles.labelStyle}>First Name</Label>
               <Input style={styles.labelStyle}
+                // placeholder={'First name'}
                 onSubmitEditing={() => this._focusInput('lastName')}
                 returnKeyType={'next'}
                 onChangeText={this._onChangeText.bind(this, 'first_name')}
@@ -195,9 +200,10 @@ class ContactAddScreen extends Component {
                 maxLength={20}
               />
             </Item>
-            <Item floatingLabel>
+            <Item stackedLabel={this.state.isEdit} floatingLabel={!this.state.isEdit}>
               <Label style={styles.labelStyle}>Last Name</Label>
               <Input style={styles.labelStyle}
+                // placeholder={'Last name'}
                 getRef={input => { this.lastName = input }}
                 onSubmitEditing={() => this._focusInput('phone')}
                 returnKeyType={'next'}
@@ -206,9 +212,10 @@ class ContactAddScreen extends Component {
                 maxLength={20}
               />
             </Item>
-            <Item floatingLabel>
-              <Label style={styles.labelStyle}>Phone Number</Label>
+            <Item stackedLabel={this.state.isEdit} floatingLabel={!this.state.isEdit}>
+              <Label style={styles.labelStyle}>Phone</Label>
               <Input style={styles.labelStyle}
+                // placeholder={'Phone'}
                 getRef={input => { this.phone = input }}
                 onSubmitEditing={() => this._focusInput('email')}
                 keyboardType={'phone-pad'}
@@ -218,9 +225,10 @@ class ContactAddScreen extends Component {
                 maxLength={13}
               />
             </Item>
-            <Item floatingLabel>
+            <Item stackedLabel={this.state.isEdit} floatingLabel={!this.state.isEdit}>
               <Label style={styles.labelStyle}>Email</Label>
               <Input style={styles.labelStyle}
+                // placeholder={'Email'}
                 getRef={input => { this.email = input }}
                 onSubmitEditing={() => this._focusInput('occupation')}
                 keyboardType={'email-address'}
@@ -230,9 +238,10 @@ class ContactAddScreen extends Component {
                 maxLength={50}
               />
             </Item>
-            <Item floatingLabel>
+            <Item stackedLabel={this.state.isEdit} floatingLabel={!this.state.isEdit}>
               <Label style={styles.labelStyle}>Occupation</Label>
               <Input style={styles.labelStyle}
+                // placeholder={'Occupation'}
                 getRef={input => { this.occupation = input }}
                 returnKeyType={'done'}
                 onChangeText={this._onChangeText.bind(this, 'occupation')}

@@ -5,8 +5,8 @@ import { ListItem as NativeBaseListItem, View } from 'native-base'
 import {Colors} from '../Themes'
 
 export const ListItem = (props) => (
-  <View style={{backgroundColor: '#FFFFFF'}}>
-    <NativeBaseListItem style={{borderBottomWidth: 1, marginHorizontal: 17, borderBottomColor: Colors.primaryColor3}} {...props} />
+  <View style={{backgroundColor: '#FFFFFF'}} >
+    <NativeBaseListItem style={{borderBottomWidth: props.lastRow ? 1 : 1, marginLeft: 0, paddingHorizontal: 17, borderBottomColor: props.lastRow ? Colors.backgroundGray : Colors.primaryColor3}} {...props} />
   </View>
 )
 

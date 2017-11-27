@@ -76,7 +76,7 @@ class ContactListScreen extends Component {
           refreshing={this.state.refreshing}
           onRefresh={this._onRefresh.bind(this)}
           renderItem={({item, index}) => {
-            return <ContactRow key={index} userData={item} onPress={() => navigate('ContactDetailScreen', {userData: item})} />
+            return <ContactRow key={index} userData={item} onPress={() => navigate('ContactDetailScreen', {userData: item})} lastRow={index === this.state.userList.length - 1} />
           }}
         />
         <Fab

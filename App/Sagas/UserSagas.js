@@ -55,7 +55,7 @@ export function * createUser (api, action) {
       })
 
       const param = {
-        id: action.data.id,
+        id: response.data.data.id,
         file: form
       }
 

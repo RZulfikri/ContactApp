@@ -5,5 +5,5 @@ import {Item as NativeBaseItem} from 'native-base'
 import { Metrics } from '../Themes/index'
 
 export const Item = (props) => (
-  <NativeBaseItem style={{width: Metrics.screenWidth - 34}} {...NativeBaseItem.props} {...props} />
+  <NativeBaseItem style={[{width: Metrics.screenWidth - 34}]} {...props} />
 )
